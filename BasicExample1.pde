@@ -11,14 +11,41 @@ Serial myPort;
 // List all the available serial ports:
 
 MidiBus myBus; // The MidiBus
+// Define constants for the notes
+final int NOTE_C3 = 48;
+final int NOTE_D3b = 49;
+final int NOTE_D3 = 50;
+final int NOTE_E3b = 51;
+final int NOTE_E3 = 52;
+final int NOTE_F3 = 53;
+final int NOTE_G3b = 54;
+final int NOTE_G3 = 55;
+final int NOTE_A3b = 56;
+final int NOTE_A3 = 57;
+final int NOTE_B3b = 58;
+final int NOTE_B3 = 59;
+final int NOTE_C4 = 60;
+final int NOTE_D4b = 61;
+final int NOTE_D4 = 62;
+final int NOTE_E4b = 63;
+final int NOTE_E4 = 64;
+final int NOTE_F4 = 65;
+final int NOTE_G4b = 66;
+final int NOTE_G4 = 67;
+final int NOTE_A4b = 68;
+final int NOTE_A4 = 69;
+final int NOTE_B4b = 70;
+final int NOTE_B4 = 71;
+final int NOTE_C5 = 72;
+
+
 
 void setup() {
-  println("S");
-  println("A");
+  println("Available Serial Ports:");
+  println("-------------------------");
   printArray(Serial.list());
-  println("B");
 // Open the port you are using at the rate you want:
-  myPort = new Serial(this, Serial.list()[1], 9600);
+  myPort = new Serial(this, Serial.list()[3], 9600);
   
 // Send a capital "A" out the serial port
   myPort.write(65);
@@ -44,20 +71,8 @@ void setup() {
 }
 
 void draw() {
-  //int channel = 0;
-  //int pitch = 64;
-  //int velocity = 0;
-  
+
   myBus.sendNoteOn(channel, pitch1, velocity1);
-   //println(pitch1);
-   //println(velocity1);
-  // Send a Midi noteOn
-  //if (pitch1 == 48 && velocity1 > 0) {
-  //   myPort.write(0);
-  //}
-  //if (pitch1 == 49 && velocity1 > 0) {
-  //   myPort.write(1);
-  //}
   delay(200);
   myBus.sendNoteOff(channel, pitch1, velocity1); // Send a Midi nodeOff
 
@@ -66,7 +81,6 @@ void draw() {
 
   myBus.sendControllerChange(channel, number, value); // Send a controllerChange
   delay(2000);
-  //String test = myPort.readString();
   
 }
 
@@ -78,140 +92,85 @@ void noteOn(int channel, int pitch, int velocity) {
   println("Channel:"+channel);
   println("Pitch:"+pitch);
   println("Velocity:"+velocity);
-  //velocity1 = velocity;
-  //pitch1 = pitch;
-  //strval = "";
-  if (pitch == 49 && velocity > 0) {
-     //myPort.write(0);
-     //strval = strval + 'a';
-     myPort.write('a');
+  if (velocity > 0 ) {
+    switch (pitch) {
+      case NOTE_C3:
+        myPort.write('c');
+        break;
+      case NOTE_D3b:
+        myPort.write('a');
+        break;
+      case NOTE_D3:
+        myPort.write('b');
+        break;
+      case NOTE_E3b:
+        myPort.write('d');
+        break;
+      case NOTE_E3:
+        myPort.write('e');
+        break;
+      case NOTE_F3:
+        myPort.write('f');
+        break;
+      case NOTE_G3b:
+        myPort.write('g');
+        break;
+      case NOTE_G3:
+        myPort.write('h');
+        break;
+      case NOTE_A3b:
+        myPort.write('i');
+        break;
+      case NOTE_A3:
+        myPort.write('j');
+        break;
+       case NOTE_B3b:
+        myPort.write('k');
+        break;
+      case NOTE_B3:
+        myPort.write('l');
+        break;
+      case NOTE_C4:
+        myPort.write('m');
+        break;
+      case NOTE_D4b:
+        myPort.write('n');
+        break;
+      case NOTE_D4:
+        myPort.write('o');
+        break;
+      case NOTE_E4b:
+        myPort.write('p');
+        break;
+      case NOTE_E4:
+        myPort.write('q');
+        break;
+      case NOTE_F4:
+        myPort.write('r');
+        break;
+      case NOTE_G4b:
+        myPort.write('s');
+        break;
+      case NOTE_G4:
+        myPort.write('t');
+        break;
+      case NOTE_A4b:
+        myPort.write('u');
+        break;
+      case NOTE_A4:
+        myPort.write('v');
+        break;
+      case NOTE_B4b:
+        myPort.write('w');
+        break;
+      case NOTE_B4:
+        myPort.write('x');
+        break;
+      default:
+        myPort.write('y');
+        break;
+    }
   }
-  if (pitch == 48 && velocity > 0) {
-     //myPort.write(0);
-     //strval = strval + 'a';
-     myPort.write('c');
-  }
-  if (pitch == 50 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('b');
-  }
-  if (pitch == 51 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('d');
-  }
-  if (pitch == 52 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('e');
-  }
-  if (pitch == 53 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('f');
-  }
-  if (pitch == 54 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('g');
-  }
-   if (pitch == 55 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('h');
-  }
-  if (pitch == 56 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('i');
-  }
-  if (pitch == 57 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('j');
-  }
-   if (pitch == 58 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('k');
-  }
-  if (pitch == 59 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('l');
-  }
-  if (pitch == 60 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('m');
-  }
-  if (pitch == 61 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('n');
-  }
-  if (pitch == 62 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('o');
-  }
-  if (pitch == 63 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('p');
-  }
-  if (pitch == 64 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('q');
-  }
-  if (pitch == 65 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('r');
-  }
-  if (pitch == 66 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('s');
-  }
-  if (pitch == 67 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('t');
-  }
-  if (pitch == 68 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('u');
-  }
-  if (pitch == 69 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('v');
-  }
-  if (pitch == 70 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('w');
-  }
-  if (pitch == 71 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('x');
-  }
-  if (pitch == 72 && velocity > 0) {
-     //myPort.write(1);
-     //strval = strval + 'b';
-     myPort.write('y');
-  }
-  //myPort.write(strval);
-  // strval.replace('b', '');
-  //println(strval);
-  
-  ////return pitch;
-  //println(strval.indexOf('a'));
 }
 
 void noteOff(int channel, int pitch, int velocity) {
@@ -222,93 +181,83 @@ void noteOff(int channel, int pitch, int velocity) {
   println("Channel:"+channel);
   println("Pitch:"+pitch);
   println("Velocity:"+velocity);
-  //myPort.clear();
-   if (pitch == 48) {
-     myPort.write('3');
-    }
-   if (pitch == 49) {
-     myPort.write('1');
-  }
-   if (pitch == 50) {
-     myPort.write('2');
-  }
-   if (pitch == 51) {
-     myPort.write('4');
-    }
-   if (pitch == 52) {
-     myPort.write('5');
-  }
-   if (pitch == 53) {
-     myPort.write('6');
-  }
-   if (pitch == 54) {
-     myPort.write('7');
-    }
-   if (pitch == 55) {
-     myPort.write('8');
-  }
-   if (pitch == 56) {
-     myPort.write('A');
-  }
-   if (pitch == 57) {
-     myPort.write('9');
-    }
-   if (pitch == 58) {
-     myPort.write('B');
-  }
-   if (pitch == 59) {
-     myPort.write('C');
-  }
-   if (pitch == 60) {
-     myPort.write('D');
-  }
-  if (pitch == 61) {
-     myPort.write('E');
-  }
-  if (pitch == 62) {
-     myPort.write('F');
-  }
-  if (pitch == 63) {
-     myPort.write('G');
-  }
-  if (pitch == 64) {
-     myPort.write('H');
-  }
-  if (pitch == 65) {
-     myPort.write('I');
-  }
-  if (pitch == 66) {
-     myPort.write('J');
-  }
-  if (pitch == 67) {
-     myPort.write('K');
-  }
-  if (pitch == 68) {
-     myPort.write('L');
-  }
-  if (pitch == 69) {
-     myPort.write('M');
-  }
-  if (pitch == 70) {
-     myPort.write('N');
-  }
-  if (pitch == 71) {
-     myPort.write('O');
-  }
-  if (pitch == 72) {
+  switch (pitch)  { 
+    case NOTE_C3 : 
+      myPort.write('3');
+      break;
+    case NOTE_D3b: 
+      myPort.write('1');
+      break;
+    case NOTE_D3: 
+      myPort.write('2');
+      break;
+    case NOTE_E3b: 
+      myPort.write('4');
+      break;
+    case NOTE_E3: 
+      myPort.write('5');
+      break;
+    case NOTE_F3: 
+      myPort.write('6');
+      break;
+    case NOTE_G3b:
+      myPort.write('7');
+      break;
+    case NOTE_G3: 
+      myPort.write('8');
+      break;
+    case NOTE_A3b: 
+      myPort.write('A');
+      break;
+    case NOTE_A3:
+      myPort.write('9');
+      break;
+    case NOTE_B3b:
+      myPort.write('B');
+      break;
+    case NOTE_B3:
+      myPort.write('C');
+      break;
+    case NOTE_C4:
+      myPort.write('D');
+      break;
+    case NOTE_D4b: 
+      myPort.write('E');
+      break;
+    case NOTE_D4:
+      myPort.write('F');
+      break;
+    case NOTE_E4b:
+      myPort.write('G');
+      break;
+    case NOTE_E4:
+      myPort.write('H');
+      break;
+    case NOTE_F4:
+      myPort.write('I');
+      break;
+    case NOTE_G4b:
+      myPort.write('J');
+      break;
+    case NOTE_G4:
+      myPort.write('K');
+      break;
+    case NOTE_A4b:
+      myPort.write('L');
+      break;
+    case  NOTE_A4: 
+      myPort.write('M');
+      break;
+    case NOTE_B4b: 
+      myPort.write('N');
+      break;
+    case NOTE_B4: 
+      myPort.write('O');
+      break;
+    default:
      myPort.write('P');
+     break;
   }
-
-  // if (pitch == 49) {
-  //   //myPort.write(0);
-  //   //strval = strval + 'a';
-  //   myPort.write('1');
-  //}
-  //if (pitch == 50) {
-  //   //myPort.write(1);
-  //   //strval = strval + 'b';
-  //   myPort.write('2');
-  //}
 }
 
 void controllerChange(int channel, int number, int value) {
