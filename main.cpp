@@ -1,5 +1,5 @@
 #include <FastLED.h>
-#define NUM_LEDS 256
+#define NUM_LEDS 768
 #define DATA_PIN 11
 #include "Location.h"
 #include "Note.h"
@@ -48,7 +48,7 @@ boolean newData = false;
 
 void setup() {
   FastLED.addLeds<WS2812,DATA_PIN,RGB>(leds,NUM_LEDS);
-  FastLED.setBrightness(2);
+  FastLED.setBrightness(10);
   randomSeed(analogRead(0));
   pinMode(13, OUTPUT);
   pinMode(7, INPUT);
