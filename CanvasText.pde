@@ -6,7 +6,11 @@ int velocity1 = 0;
 String strval = "";
 Boolean[] notesArray = new Boolean[25]; 
 // The serial port:
+
 Serial myPort;
+//Serial myPort2;
+//Serial myPort3;
+//Serial myPort4;
 // pitches go from 48 - 72
 // List all the available serial ports:
 
@@ -23,7 +27,10 @@ void setup() {
   printArray(Serial.list());
   println("B");
 // Open the port you are using at the rate you want:
-  myPort = new Serial(this, Serial.list()[1], 9600);
+  myPort = new Serial(this, Serial.list()[0], 9600);
+  //myPort2 = new Serial(this, Serial.list()[2], 9600);
+  //myPort3 = new Serial(this, Serial.list()[3], 9600);
+  //myPort4 = new Serial(this, Serial.list()[4], 9600);
   
 // Send a capital "A" out the serial port
 //  myPort.write(65);
@@ -53,10 +60,12 @@ void setup() {
 }
 
 void draw() {
+
+  
   //int channel = 0;
   //int pitch = 64;
   //int velocity = 0;
-  background(51);
+  background(152,190,100);
   myBus.sendNoteOn(channel, pitch1, velocity1);
    //println(pitch1);
    //println(velocity1);
@@ -84,7 +93,7 @@ void draw() {
         size(1400, 800);
         textSize(200);
         String s = "C Major";
-        fill(200);
+        fill(0, 0, 150);
         textAlign(CENTER, CENTER);
         text(s, 0, 0, 1400, 800); 
         
@@ -92,211 +101,211 @@ void draw() {
         size(1400, 800);
         textSize(200);
         String s = "C Sharp Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[2] && notesArray[6] && notesArray[9]) {
         size(1400, 800);
         textSize(200);
         String s = "D Sharp Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[3] && notesArray[7] && notesArray[10]) {
         size(1400, 800);
         textSize(200);
         String s = "E Flat Major";
-        fill(200);
+         fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[4] && notesArray[8] && notesArray[11]) {
         size(1400, 800);
         textSize(200);
         String s = "E Flat Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[5] && notesArray[9] && notesArray[12]) {
         size(1400, 800);
         textSize(200);
         String s = "F Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s,0, 0, 1400, 800); 
      } else if (notesArray[6] && notesArray[10] && notesArray[13]) {
         size(1400, 800);
         textSize(200);
         String s = "F Sharp Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[7] && notesArray[11] && notesArray[14]) {
         size(1400, 800);
         textSize(200);
         String s = "G Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[8] && notesArray[12] && notesArray[15]) {
         size(1400, 800);
         textSize(200);
         String s = "A Flat Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[9] && notesArray[13] && notesArray[16]) {
         size(1400, 800);
         textSize(200);
         String s = "A Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0,1400, 800); 
      } else if (notesArray[10] && notesArray[14] && notesArray[17]) {
         size(1400, 800);
         textSize(200);
         String s = "B Flat Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[11] && notesArray[15] && notesArray[18]) {
         size(1400, 800);
         textSize(200);
         String s = "B Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[12] && notesArray[16] && notesArray[19]) {
         size(1400, 800);
         textSize(200);
         String s = "C Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[13] && notesArray[17] && notesArray[20]) {
         size(1400, 800);
         textSize(200);
         String s = "C Sharp Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[14] && notesArray[18] && notesArray[21]) {
         size(1400, 800);
         textSize(200);
         String s = "D Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[15] && notesArray[19] && notesArray[22]) {
         size(1400, 800);
         textSize(200);
         String s = "E Flat Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[16] && notesArray[20] && notesArray[23]) {
          size(1400, 800);
         textSize(200);
         String s = "E Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[17] && notesArray[21] && notesArray[24]) {
         size(1400, 800);
         textSize(200);
         String s = "F Major";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[0] && notesArray[3] && notesArray[7]) {
         size(1400, 800);
         textSize(200);
         String s = "C Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[1] && notesArray[4] && notesArray[8]) {
         size(1400, 800);
         textSize(200);
         String s = "C Sharp Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[2] && notesArray[5] && notesArray[9]) {
         size(1400, 800);
         textSize(200);
         String s = "D Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[3] && notesArray[6] && notesArray[10]) {
         size(1400, 800);
         textSize(200);
         String s = "E Flat Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s,0, 0, 1400, 800); 
      } else if (notesArray[4] && notesArray[7] && notesArray[11]) {
         size(1400, 800);
         textSize(200);
         String s = "E Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[5] && notesArray[8] && notesArray[12]) {
         size(1400, 800);
         textSize(200);
         String s = "F Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[6] && notesArray[9] && notesArray[13]) {
         size(1400, 800);
         textSize(200);
         String s = "F Sharp Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[7] && notesArray[10] && notesArray[14]) {
         size(1400, 800);
         textSize(200);
         String s = "G Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[8] && notesArray[11] && notesArray[15]) {
         size(1400, 800);
         textSize(200);
         String s = "A Flat Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[9] && notesArray[12] && notesArray[16]) {
         size(1400, 800);
         textSize(200);
         String s = "A Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[10] && notesArray[13] && notesArray[17]) {
         size(1400, 800);
         textSize(200);
         String s = "B Flat Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[11] && notesArray[14] && notesArray[18]) {
         size(1400, 800);
         textSize(200);
         String s = "B Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[12] && notesArray[15] && notesArray[19]) {
         size(1400, 800);
         textSize(200);
         String s = "C Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[13] && notesArray[16] && notesArray[20]) {
         size(1400, 800);
         textSize(200);
         String s = "C Sharp Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[14] && notesArray[17] && notesArray[21]) {
         size(1400, 800);
         textSize(200);
         String s = "D Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[15] && notesArray[18] && notesArray[22]) {
         size(1400, 800);
         textSize(200);
         String s = "E Flat Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[16] && notesArray[19] && notesArray[23]) {
         size(1400, 800);
         textSize(200);
         String s = "E Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      } else if (notesArray[17] && notesArray[20] && notesArray[24]) {
         size(1400, 800);
         textSize(200);
         String s = "F Minor";
-        fill(200);
+        fill(0, 0, 150);
         text(s, 0, 0, 1400, 800); 
      }
        
@@ -335,9 +344,15 @@ void noteOn(int channel, int pitch, int velocity) {
   if (velocity > 0) {
     if (pitch == 43) {
       myPort.write('z');
+      //myPort2.write('z');
+      //myPort3.write('z');
+      //myPort4.write('z');
     } else {
       char val = char(49 + pitch);
       myPort.write(val);
+      //myPort2.write(val);
+      //myPort3.write(val);
+      //myPort4.write(val);
       //  if (velocity > 0) {
         if (pitch >= 48) {
         notesArray[pitch - 48] = true;
@@ -358,12 +373,18 @@ void noteOff(int channel, int pitch, int velocity) {
   //myPort.clear();
    if (pitch == 43) {
       myPort.write('Z');
+      //myPort2.write('Z');
+      //myPort3.write('Z');
+      //myPort4.write('Z');
    } else {
     if (pitch >= 48) {
        notesArray[pitch - 48] = false;
     }
     char val = char(17 + pitch);
     myPort.write(val);
+    //myPort2.write(val);
+    //myPort3.write(val);
+    //myPort4.write(val);
     }
 }
 
