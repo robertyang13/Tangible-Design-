@@ -42,16 +42,27 @@ onNoteOff: When a key is let go (serial will read and write upper case character
 #include "Location.h"
 #include "Note.h"
 #define PRINT_ENABLED false
+// dont use string below
 String inpt = "";
+// dont use char below
 char val;
 const byte numChars = 200;
 char receivedChars[numChars]; 
+
+// !!!!!!
+// crap, I don't think I every finished the array boolean instead so we can just get rid of the 25 index array boolean below oops :p
 bool switchArray[25] = {false};
+// :x
+
+
 CRGB leds[NUM_LEDS];
+
+// Dont use any CHSV value below
 CHSV paleBlue( 160, 128, 128);
 CHSV paleRed(87, 180, 180);
 CHSV medRed(96, 210, 210);
 CHSV brightRed(160, 244, 244);
+//
 Note C3 = Note(0x12EE12, &leds);
 Note D3b = Note(0x7CF42F, &leds);
 Note D3 = Note(0xE9EC4F, &leds);
